@@ -6,10 +6,12 @@ export default function DoneOrNot({ task }) {
   const dispatch = useDispatch();
 
   return (
-    <DeleteButtonStyled
+    <button
+      type="button"
+      class="btn btn-outline-success btn-sm mx-2"
       onClick={() => dispatch(finishedTask({ ...task, status: !task.status }))}
     >
-      {task.status ? "Done" : "Not Done"}
-    </DeleteButtonStyled>
+      <b>{!task.status ? "Done" : "Not Done"}</b>
+    </button>
   );
 }

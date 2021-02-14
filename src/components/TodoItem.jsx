@@ -14,7 +14,8 @@ export default function TodoItem(props) {
 
   let a = moment(task.deadlineDate);
   let b = moment();
-  let datediff = a.diff(b, "hours");
+  let datediffdays = a.diff(b, "days");
+  let datediffhours = a.diff(b, "hours");
 
   const ch = () => {
     if (task.priority === "low") return "middle";
@@ -23,16 +24,50 @@ export default function TodoItem(props) {
   };
 
   return (
-    <div>
-      <h2>{task.name}</h2>
-      <p onClick={() => dispatch(changePriority({ ...task, priority: ch() }))}>
-        {task.priority.toUpperCase()}
-      </p>
-      <p>{!task.status ? `${datediff} hours left` : task.deadlineDate}</p>
-      <DeleteButton taskId={task.id} deleteTask={props.deleteTask} />
-      {datediff > 0 ? <DoneOrNot task={task} /> : ""}
+    <div
+      class="card border-dark mx-3 mb-3 mt-5 bg-secondary"
+      style={{
+        width: "25rem",
+        outlineWidth: "25px",
+      }}
+    >
+      <div
+        class="card-body"
+        style={{
+          backgroundColor: "#fefafb",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+          }}
+        >
+          <h2 class="card-title">{task.name}</h2>
+          <p style={{ marginLeft: "auto" }}>
+            {!task.status && datediffdays === 0
+              ? `${datediffhours} hours left`
+              : !task.status && datediffdays > 0
+              ? `${datediffdays} days left`
+              : task.deadlineDate}
+          </p>
+        </div>
+        <p
+          class="card-subtitle mb-2  text-right"
+          style={{ color: "red" }}
+          onClick={() => dispatch(changePriority({ ...task, priority: ch() }))}
+        >
+          <b>{task.priority.toUpperCase()}</b>
+        </p>
+        <p></p>
+        <DeleteButton taskId={task.id} deleteTask={props.deleteTask} />
+        {datediffhours > 0 ? <DoneOrNot task={task} /> : ""}
 
-      {!task.status && datediff > 0 ? <UpdateButton taskId={task.id} /> : ""}
+        {!task.status && datediffhours > 0 ? (
+          <UpdateButton taskId={task.id} />
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 }

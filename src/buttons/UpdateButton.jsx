@@ -8,7 +8,9 @@ export default function UpdateButton(props) {
 
   return (
     <Link to={`${props.taskId}/edit`}>
-      <DeleteButtonStyled>Update</DeleteButtonStyled>
+      <button type="button" class="btn btn-outline-info btn-sm">
+        <b>Update</b>
+      </button>
     </Link>
   );
 }

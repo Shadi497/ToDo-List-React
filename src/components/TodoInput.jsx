@@ -38,7 +38,7 @@ export default function TodoInput() {
 
   return (
     <ListForm>
-      <form style={{ width: "50%" }} onSubmit={handleSubmit}>
+      <form style={{ width: "50%", color: "white" }} onSubmit={handleSubmit}>
         <h1 style={{ marginBottom: "55px" }}>
           {foundTask ? "Update " : "New "}Task
         </h1>
@@ -77,9 +77,13 @@ export default function TodoInput() {
           <label className="form-label" for="form1Example1">
             Task Priority
           </label>
-          <div className="col-sm-10" style={{}}>
-            <select name="priority" onChange={handleChange}>
-              <option value="">Choose your priority</option>
+          <div className="col-sm-10">
+            <select
+              name="priority"
+              style={{ height: "105%", paddingLeft: "15px", width: "40%" }}
+              onChange={handleChange}
+            >
+              <option value="">-- Choose your priority --</option>
               <option value="low">Low</option>
               <option value="middle">Middle</option>
               <option value="high">High</option>
@@ -88,7 +92,7 @@ export default function TodoInput() {
         </div>
 
         <button type="submit" className="btn btn-primary btn-block">
-          Add
+          <b>{foundTask ? "Update " : "Add "}</b>
         </button>
       </form>
     </ListForm>

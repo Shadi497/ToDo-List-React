@@ -4,6 +4,7 @@ import TodoInput from "./components/TodoInput";
 import React, { useState } from "react";
 import { Route, Switch } from "react-router";
 import data from "./data";
+import { Img } from "./styles";
 
 function App() {
   const [tasks, setTasks] = useState();
@@ -18,16 +19,18 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <Switch>
-        <Route exact path={["/new", "/:taskId/edit"]}>
-          <TodoInput />
-        </Route>
-        <Route exact path="/">
-          <TodoList deleteTask={deleteTask} updateTask={updateTask} />
-        </Route>
-      </Switch>
-    </div>
+    <Img>
+      <div>
+        <Switch>
+          <Route exact path={["/new", "/:taskId/edit"]}>
+            <TodoInput />
+          </Route>
+          <Route exact path="/">
+            <TodoList deleteTask={deleteTask} updateTask={updateTask} />
+          </Route>
+        </Switch>
+      </div>
+    </Img>
   );
 }
 

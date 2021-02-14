@@ -1,5 +1,5 @@
 import React from "react";
-import { ListWrapper, TwoCol } from "../styles";
+import { Icon, ListWrapper, TwoCol } from "../styles";
 import TodoItem from "./TodoItem";
 import { useState } from "react";
 import { useSelector } from "react-redux";
@@ -7,6 +7,7 @@ import TodoInput from "./TodoInput";
 import { BiAddToQueue } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import Loading from "./Loading";
+import { Img } from "../styles";
 
 export default function TodoList(props) {
   const tasks = useSelector((state) => state.tasks);
@@ -39,17 +40,41 @@ export default function TodoList(props) {
   return (
     <div>
       <TwoCol>
+        <Icon>
+          <Link to={"/new"}>
+            <BiAddToQueue
+              style={{
+                color: "white",
+                marginTop: "95px",
+              }}
+              size={70}
+            />
+          </Link>
+        </Icon>
         <ListWrapper>
-          <h1>Finished Tasks </h1>
+          <h1
+            style={{
+              color: "white",
+              justifyContent: "center",
+              display: "flex",
+            }}
+          >
+            Finished Tasks{" "}
+          </h1>
           {finishedtasks}
         </ListWrapper>
         <ListWrapper>
-          <h1>Unfinished Tasks </h1>
+          <h1
+            style={{
+              color: "white",
+              justifyContent: "center",
+              display: "flex",
+            }}
+          >
+            Unfinished Tasks{" "}
+          </h1>
           {notfinishedtasks}
         </ListWrapper>{" "}
-        <Link to={"/new"}>
-          <BiAddToQueue style={{ marginTop: "95px" }} size={70} />
-        </Link>
       </TwoCol>
     </div>
   );

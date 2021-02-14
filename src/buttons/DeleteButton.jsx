@@ -6,8 +6,12 @@ export default function DeleteButton(props) {
   const dispatch = useDispatch();
 
   return (
-    <DeleteButtonStyled onClick={() => dispatch(deleteTask(props.taskId))}>
-      Delete
-    </DeleteButtonStyled>
+    <button
+      type="button"
+      class="btn btn-outline-danger btn-sm"
+      onClick={() => dispatch(deleteTask(props.taskId))}
+    >
+      <b>Delete</b>
+    </button>
   );
 }
