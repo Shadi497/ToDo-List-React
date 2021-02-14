@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import TodoList from "./components/TodoList";
+import TodoInput from "./components/TodoInput";
+import React, { useState } from "react";
+import { Route, Switch } from "react-router";
+import data from "./data";
 
 function App() {
+  const [tasks, setTasks] = useState(data);
+  const deleteTask = (taskId) => {
+    const updatedList = tasks.filter((task) => task.id !== taskId);
+    setTasks(updatedList);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Switch>
+        <Route exact path="/">
+          <TodoList deleteTask={deleteTask} />
+        </Route>
+      </Switch>
     </div>
   );
 }
