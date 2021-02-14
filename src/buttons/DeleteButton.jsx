@@ -6,7 +6,7 @@ export default function DeleteButton(props) {
   const dispatch = useDispatch();
 
   return (
-    <DeleteButtonStyled onClick={() => dispatch(deleteTask(props.productId))}>
+    <DeleteButtonStyled onClick={() => dispatch(deleteTask(props.taskId))}>
       Delete
     </DeleteButtonStyled>
   );
