@@ -3,7 +3,6 @@ import TodoList from "./components/TodoList";
 import TodoInput from "./components/TodoInput";
 import React, { useState } from "react";
 import { Route, Switch } from "react-router";
-import data from "./data";
 import { Img } from "./styles";
 
 function App() {
@@ -20,7 +19,11 @@ function App() {
 
   return (
     <Img>
-      <div>
+      <div
+        style={{
+          paddingBottom: "415px",
+        }}
+      >
         <Switch>
           <Route exact path={["/new", "/:taskId/edit"]}>
             <TodoInput />

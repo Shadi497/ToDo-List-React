@@ -1,4 +1,3 @@
-import { DeleteButtonStyled } from "../styles";
 import { deleteTask } from "../store/actions";
 import { useDispatch } from "react-redux";
 

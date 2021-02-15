@@ -1,19 +1,15 @@
 import React from "react";
 import { Icon, ListWrapper, TwoCol } from "../styles";
 import TodoItem from "./TodoItem";
-import { useState } from "react";
 import { useSelector } from "react-redux";
-import TodoInput from "./TodoInput";
 import { BiAddToQueue } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import Loading from "./Loading";
-import { Img } from "../styles";
 
 export default function TodoList(props) {
   const tasks = useSelector((state) => state.tasks);
-  const loading = useSelector((state) => state.loading);
 
-  if (loading) return <Loading />;
+  if (tasks.length <= 0) return <Loading />;
   const finishedList = [];
   const notFinishedList = [];
 

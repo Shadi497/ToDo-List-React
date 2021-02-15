@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTask, updateTask } from "../store/actions";
 import { useState } from "react";
-import { ListForm, Form, FormButton, H } from "../styles";
+import { ListForm } from "../styles";
 import { useHistory, useParams } from "react-router";
 
 export default function TodoInput() {

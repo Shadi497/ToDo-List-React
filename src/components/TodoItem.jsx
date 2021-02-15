@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import DeleteButton from "../buttons/DeleteButton";
 import DoneOrNot from "../buttons/DoneOrNot";
 import UpdateButton from "../buttons/UpdateButton";
-import ChangePriority from "../buttons/ChangePriority";
 
 export default function TodoItem(props) {
   const dispatch = useDispatch();

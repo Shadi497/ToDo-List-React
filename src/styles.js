@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 import img from "./bc.jpg";
 export const ListWrapper = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ export const Img = styled.div`
   // background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: auto;
+  // height: 100%;
 `;
 
 export const LoadingWrapper = styled.div`
@@ -31,7 +31,7 @@ export const LoadingWrapper = styled.div`
   justify-content: center;
   display: flex;
   flex-direction: column;
-  margin: 10%;
+  padding-top: 150px;
 `;
 export const TwoCol = styled.div`
   display: flex;
@@ -49,5 +49,4 @@ export const ListForm = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 90px;
-  padding-bottom: 366px;
 `;
