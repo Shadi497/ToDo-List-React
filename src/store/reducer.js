@@ -1,6 +1,5 @@
 const initialState = {
   tasks: [],
-  loading: true,
 };
 
 const reducer = (state = initialState, action) => {
@@ -9,7 +8,6 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         tasks: action.payload,
-        loading: false,
       };
     case "DELETE_TASK":
       return {
